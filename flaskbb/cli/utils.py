@@ -174,3 +174,24 @@ def write_config(config, config_template, config_path):
         cfg_file.write(
             config_template.render(**config).encode("utf-8")
         )
+
+
+def quick_sort(array):
+    if array is None:
+        ValueError("Input array shouldn't be None")
+    less = []
+    equal = []
+    greater = []
+
+    if len(array) > 1:
+        pivot = array[0]
+        for x in array:
+            if x < pivot:
+                less.append(x)
+            elif x == pivot:
+                equal.append(x)
+            elif x > pivot:
+                greater.append(x)
+        return quick_sort(less) + equal + quick_sort(greater)
+    else:
+        return array
