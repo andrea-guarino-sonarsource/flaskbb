@@ -40,7 +40,7 @@ jobs:
         flaskbb translations compile
     - name: Test with pytest
       run: |
-        pytest --cov=./ --cov-report=xml
+        pytest --cov --cov-report=xml
     - name: Analysing the code with pylint
       run: |
         pylint flaskbb --exit-zero --output-format=parseable > pylint-report.txt
